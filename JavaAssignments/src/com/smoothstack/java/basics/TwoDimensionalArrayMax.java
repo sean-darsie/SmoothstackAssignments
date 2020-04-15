@@ -8,8 +8,8 @@ public class TwoDimensionalArrayMax {
 	public static void main(String[] args) {
 		int[][] array = constructRandomIntArray(5);
 		
-		int maxValue = findMaxInt(array);
-		System.out.println("the largest value of this array is "+maxValue);
+		int[] maxValue = findMaxInt(array);
+		System.out.println("the largest value of this array is "+maxValue[0]+", at index "+maxValue[1]);
 
 	}
 	
@@ -28,8 +28,9 @@ public class TwoDimensionalArrayMax {
 		return array;
 	}
 	
-	public static int findMaxInt(int[][] array)
+	public static int[] findMaxInt(int[][] array)
 	{
+		int[] result = new int[2];
 		int max = 0;
 		
 		for (int i = 0; i < array.length; i++)
@@ -38,11 +39,13 @@ public class TwoDimensionalArrayMax {
 			{
 				if (array[i][j] > max)
 				{
-					max = array[i][j];
+					result[0] = max;
+					result[1] = i;
 				}
 			}
 		}
-		return max;
+		
+		return result;
 	}
 
 }

@@ -13,7 +13,7 @@ public class Circle implements Shape {
 	@Override
 	public void calculateArea() {
 		double area = Math.PI * Math.pow(radius, 2);
-		System.out.println("the area of this Circle is "+area);
+		System.out.printf("The area of this circle is %.2f\n",area);
 
 	}
 

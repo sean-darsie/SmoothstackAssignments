@@ -13,8 +13,9 @@ public class LibraryInterface {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		// here we go. we're going to have a library record system interface
-
+		AuthorService authorService = new AuthorService();
+		Author author = new Author(1,"TestAuthor");
+		authorService.createAuthor(author);
 	}
 
 }

@@ -12,7 +12,6 @@ public class Author {
 	private String name;
 	
 	public Author(int authorId, String authorName) {
-		super();
 		this.setAuthorId(authorId);
 		this.setName(authorName);
 	}

@@ -7,7 +7,7 @@ public interface Writer {
 	default public void writeToFile(String path, String data)
 	{
 		try(FileWriter fileWriter= new FileWriter(new File(path))){
-			fileWriter.write(data);
+			fileWriter.write(data + "\n");
 		}catch (Exception e){
 			e.printStackTrace();
 			System.out.println("Failed to write to file");
@@ -16,8 +16,8 @@ public interface Writer {
 	
 	default public void appendToFile(String path, String data)
 	{
-		try(FileWriter fileWriter= new FileWriter(new File(path))){
-			fileWriter.append(data);
+		try(FileWriter fileWriter= new FileWriter(new File(path),true)){
+			fileWriter.append(data + "\n");
 		}catch (Exception e){
 			e.printStackTrace();
 			System.out.println("Failed to write to file");

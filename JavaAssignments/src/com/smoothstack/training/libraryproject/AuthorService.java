@@ -20,15 +20,20 @@ public class AuthorService implements Reader, Writer {
 			return "Author cannot be null";
 		if (author.getName().length() < 2 || author.getName().length() > 45)
 			return "Author name must be between 2 and 45 characters in length";
+		String allAuthors = readFromFile("resources/libraryfiles/authors.txt");
+		if (allAuthors.contains(author.getAuthorId()+","+author.getName()))
+		{
+			return "Author named " + author.getName()+ " already exists";
+		}
 		
-		writeToFile("resources/libraryfiles/authors.txt",author.getAuthorId()+ ","+author.getName());
+		appendToFile("resources/libraryfiles/authors.txt",author.getAuthorId()+ ","+author.getName());
 		return "Successfully added "+author.getName();
 	}
 	
 	public String readAuthor()
 	{
 		StringBuilder stringBuilder = new StringBuilder();
-		try(BufferedReader bufStream = new BufferedReader(new FileReader("resources/libraryfiles/author.txt"))){
+		try(BufferedReader bufStream = new BufferedReader(new FileReader("Resources/libraryfiles/authors.txt"))){
 			String line = bufStream.readLine();
 			while(line!=null){
 				Author author = new Author(1, "placeholder");

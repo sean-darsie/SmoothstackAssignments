@@ -10,7 +10,7 @@ public interface Reader {
 		try(BufferedReader bufStream = new BufferedReader(new FileReader(path))){
 			String line = bufStream.readLine();
 			while(line!=null){
-				stringBuilder.append(line);
+				stringBuilder.append(line+"\n");
 				line = bufStream.readLine();
 			}
 		} catch (Exception e) {
